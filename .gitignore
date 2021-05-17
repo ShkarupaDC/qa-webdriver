@@ -1,0 +1,4 @@
+# VS Code setting
+.vscode
+# Webdriver for Firefox log file
+geckodriver.log
