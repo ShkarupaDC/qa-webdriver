@@ -1,7 +1,7 @@
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.common.keys import Keys
 
-from .locators import IMDbPageLocators
+from .locators import IMDbPageLocators, pass_locator_params
 from .base import BasePage
 
 
@@ -19,9 +19,7 @@ class IMDbPage(BasePage):
         return set(movie.text for movie in movies)
 
     def open_movie_page(self, title: str) -> None:
-        locator = self._pass_locator_params(
-            IMDbPageLocators.MOVIE, movie=title
-        )
+        locator = pass_locator_params(IMDbPageLocators.MOVIE, movie=title)
         movie = self._get_element(locator)
         self._wait_for_redirect(lambda: movie.click())
 

@@ -31,7 +31,7 @@ def step_impl(context: Context, director: str) -> None:
     assert director in directors
 
 
-@then("rating is between 0 and 10")
+@then("rating is valid")
 def step_impl(context: Context) -> None:
     rating = context.imdb.get_movie_rating()
     assert rating >= 0 and rating <= 10

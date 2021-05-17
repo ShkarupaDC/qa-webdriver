@@ -30,12 +30,6 @@ class BasePage:
         elements = self._get_elements(locator, timeout)
         return elements[0]
 
-    def _pass_locator_params(
-        self, locator: tuple[str, str], **kwargs
-    ) -> tuple[str, str]:
-        by, path = locator
-        return (by, path.format(**kwargs))
-
     def _wait_for_redirect(
         self, redirect: Callable, timeout: int = 10
     ) -> None:

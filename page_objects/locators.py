@@ -25,3 +25,8 @@ class IMDbPageLocators:
         """,
     )
     RATING = (By.CSS_SELECTOR, 'span[itemprop="ratingValue"]')
+
+
+def pass_locator_params(locator: tuple[str, str], **kwargs) -> tuple[str, str]:
+    by, path = locator
+    return (by, path.format(**kwargs))
